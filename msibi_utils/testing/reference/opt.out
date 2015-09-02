@@ -1,0 +1,560 @@
+[INFO] -------- Iteration 0 --------
+[INFO] Launching 2 GPU threads...
+[INFO]     Launched HOOMD in nvt550
+[INFO]     Launched HOOMD in nvt700
+[INFO]     Finished in nvt700.
+[INFO]     Launched HOOMD in nvt400
+[INFO]     Finished in nvt550.
+[INFO]     Launched HOOMD in npt550
+[INFO]     Finished in nvt400.
+[INFO]     Finished in npt550.
+[INFO] pair chead-chead, state nvt400, iteration 0: 0.326313
+[INFO] pair chead-chead, state nvt550, iteration 0: 0.325391
+[INFO] pair chead-chead, state npt550, iteration 0: 0.378181
+[INFO] pair chead-chead, state nvt700, iteration 0: 0.623061
+[INFO] pair chead-ring, state nvt400, iteration 0: 0.515741
+[INFO] pair chead-ring, state nvt550, iteration 0: 0.510941
+[INFO] pair chead-ring, state npt550, iteration 0: 0.575702
+[INFO] pair chead-ring, state nvt700, iteration 0: 0.682127
+[INFO] pair chead-ctail, state nvt400, iteration 0: 0.577483
+[INFO] pair chead-ctail, state nvt550, iteration 0: 0.644008
+[INFO] pair chead-ctail, state npt550, iteration 0: 0.680257
+[INFO] pair chead-ctail, state nvt700, iteration 0: 0.749248
+[INFO] pair chead-cterm, state nvt400, iteration 0: 0.490136
+[INFO] pair chead-cterm, state nvt550, iteration 0: 0.630549
+[INFO] pair chead-cterm, state npt550, iteration 0: 0.662668
+[INFO] pair chead-cterm, state nvt700, iteration 0: 0.771856
+[INFO] pair chead-chme, state nvt400, iteration 0: 0.518613
+[INFO] pair chead-chme, state nvt550, iteration 0: 0.509812
+[INFO] pair chead-chme, state npt550, iteration 0: 0.574668
+[INFO] pair chead-chme, state nvt700, iteration 0: 0.664810
+[INFO] pair ring-ring, state nvt400, iteration 0: 0.537505
+[INFO] pair ring-ring, state nvt550, iteration 0: 0.540856
+[INFO] pair ring-ring, state npt550, iteration 0: 0.603339
+[INFO] pair ring-ring, state nvt700, iteration 0: 0.665511
+[INFO] pair ring-ctail, state nvt400, iteration 0: 0.831336
+[INFO] pair ring-ctail, state nvt550, iteration 0: 0.822206
+[INFO] pair ring-ctail, state npt550, iteration 0: 0.871808
+[INFO] pair ring-ctail, state nvt700, iteration 0: 0.758216
+[INFO] pair ring-cterm, state nvt400, iteration 0: 0.830697
+[INFO] pair ring-cterm, state nvt550, iteration 0: 0.843280
+[INFO] pair ring-cterm, state npt550, iteration 0: 0.868747
+[INFO] pair ring-cterm, state nvt700, iteration 0: 0.775001
+[INFO] pair ring-chme, state nvt400, iteration 0: 0.542448
+[INFO] pair ring-chme, state nvt550, iteration 0: 0.543647
+[INFO] pair ring-chme, state npt550, iteration 0: 0.606443
+[INFO] pair ring-chme, state nvt700, iteration 0: 0.661814
+[INFO] pair ctail-ctail, state nvt400, iteration 0: 0.612132
+[INFO] pair ctail-ctail, state nvt550, iteration 0: 0.633285
+[INFO] pair ctail-ctail, state npt550, iteration 0: 0.688690
+[INFO] pair ctail-ctail, state nvt700, iteration 0: 0.733559
+[INFO] pair ctail-cterm, state nvt400, iteration 0: 0.722792
+[INFO] pair ctail-cterm, state nvt550, iteration 0: 0.702625
+[INFO] pair ctail-cterm, state npt550, iteration 0: 0.762332
+[INFO] pair ctail-cterm, state nvt700, iteration 0: 0.768432
+[INFO] pair ctail-chme, state nvt400, iteration 0: 0.816155
+[INFO] pair ctail-chme, state nvt550, iteration 0: 0.809603
+[INFO] pair ctail-chme, state npt550, iteration 0: 0.860001
+[INFO] pair ctail-chme, state nvt700, iteration 0: 0.752307
+[INFO] pair cterm-cterm, state nvt400, iteration 0: 0.652279
+[INFO] pair cterm-cterm, state nvt550, iteration 0: 0.662465
+[INFO] pair cterm-cterm, state npt550, iteration 0: 0.730822
+[INFO] pair cterm-cterm, state nvt700, iteration 0: 0.775803
+[INFO] pair cterm-chme, state nvt400, iteration 0: 0.835272
+[INFO] pair cterm-chme, state nvt550, iteration 0: 0.853501
+[INFO] pair cterm-chme, state npt550, iteration 0: 0.878386
+[INFO] pair cterm-chme, state nvt700, iteration 0: 0.769193
+[INFO] pair chme-chme, state nvt400, iteration 0: 0.527841
+[INFO] pair chme-chme, state nvt550, iteration 0: 0.534913
+[INFO] pair chme-chme, state npt550, iteration 0: 0.597265
+[INFO] pair chme-chme, state nvt700, iteration 0: 0.652387
+[INFO] -------- Iteration 1 --------
+[INFO] Launching 2 GPU threads...
+[INFO]     Launched HOOMD in nvt550
+[INFO]     Launched HOOMD in nvt700
+[INFO]     Finished in nvt550.
+[INFO]     Finished in nvt700.
+[INFO]     Launched HOOMD in nvt400
+[INFO]     Launched HOOMD in npt550
+[INFO]     Finished in nvt400.
+[INFO]     Finished in npt550.
+[INFO] pair chead-chead, state nvt400, iteration 1: 0.931990
+[INFO] pair chead-chead, state nvt550, iteration 1: 0.944095
+[INFO] pair chead-chead, state npt550, iteration 1: 0.911066
+[INFO] pair chead-chead, state nvt700, iteration 1: 0.945547
+[INFO] pair chead-ring, state nvt400, iteration 1: 0.968066
+[INFO] pair chead-ring, state nvt550, iteration 1: 0.969433
+[INFO] pair chead-ring, state npt550, iteration 1: 0.933302
+[INFO] pair chead-ring, state nvt700, iteration 1: 0.969562
+[INFO] pair chead-ctail, state nvt400, iteration 1: 0.954800
+[INFO] pair chead-ctail, state nvt550, iteration 1: 0.962783
+[INFO] pair chead-ctail, state npt550, iteration 1: 0.960852
+[INFO] pair chead-ctail, state nvt700, iteration 1: 0.966563
+[INFO] pair chead-cterm, state nvt400, iteration 1: 0.926983
+[INFO] pair chead-cterm, state nvt550, iteration 1: 0.937895
+[INFO] pair chead-cterm, state npt550, iteration 1: 0.937109
+[INFO] pair chead-cterm, state nvt700, iteration 1: 0.943526
+[INFO] pair chead-chme, state nvt400, iteration 1: 0.961944
+[INFO] pair chead-chme, state nvt550, iteration 1: 0.965210
+[INFO] pair chead-chme, state npt550, iteration 1: 0.932118
+[INFO] pair chead-chme, state nvt700, iteration 1: 0.966730
+[INFO] pair ring-ring, state nvt400, iteration 1: 0.964026
+[INFO] pair ring-ring, state nvt550, iteration 1: 0.962306
+[INFO] pair ring-ring, state npt550, iteration 1: 0.922004
+[INFO] pair ring-ring, state nvt700, iteration 1: 0.962879
+[INFO] pair ring-ctail, state nvt400, iteration 1: 0.972388
+[INFO] pair ring-ctail, state nvt550, iteration 1: 0.978434
+[INFO] pair ring-ctail, state npt550, iteration 1: 0.970232
+[INFO] pair ring-ctail, state nvt700, iteration 1: 0.980351
+[INFO] pair ring-cterm, state nvt400, iteration 1: 0.954201
+[INFO] pair ring-cterm, state nvt550, iteration 1: 0.956244
+[INFO] pair ring-cterm, state npt550, iteration 1: 0.955602
+[INFO] pair ring-cterm, state nvt700, iteration 1: 0.957407
+[INFO] pair ring-chme, state nvt400, iteration 1: 0.970523
+[INFO] pair ring-chme, state nvt550, iteration 1: 0.971136
+[INFO] pair ring-chme, state npt550, iteration 1: 0.929457
+[INFO] pair ring-chme, state nvt700, iteration 1: 0.972316
+[INFO] pair ctail-ctail, state nvt400, iteration 1: 0.947536
+[INFO] pair ctail-ctail, state nvt550, iteration 1: 0.958267
+[INFO] pair ctail-ctail, state npt550, iteration 1: 0.957465
+[INFO] pair ctail-ctail, state nvt700, iteration 1: 0.963145
+[INFO] pair ctail-cterm, state nvt400, iteration 1: 0.949847
+[INFO] pair ctail-cterm, state nvt550, iteration 1: 0.958558
+[INFO] pair ctail-cterm, state npt550, iteration 1: 0.957759
+[INFO] pair ctail-cterm, state nvt700, iteration 1: 0.961723
+[INFO] pair ctail-chme, state nvt400, iteration 1: 0.971085
+[INFO] pair ctail-chme, state nvt550, iteration 1: 0.973516
+[INFO] pair ctail-chme, state npt550, iteration 1: 0.985250
+[INFO] pair ctail-chme, state nvt700, iteration 1: 0.973121
+[INFO] pair cterm-cterm, state nvt400, iteration 1: 0.885094
+[INFO] pair cterm-cterm, state nvt550, iteration 1: 0.900218
+[INFO] pair cterm-cterm, state npt550, iteration 1: 0.907563
+[INFO] pair cterm-cterm, state nvt700, iteration 1: 0.912109
+[INFO] pair cterm-chme, state nvt400, iteration 1: 0.934290
+[INFO] pair cterm-chme, state nvt550, iteration 1: 0.937574
+[INFO] pair cterm-chme, state npt550, iteration 1: 0.946517
+[INFO] pair cterm-chme, state nvt700, iteration 1: 0.939379
+[INFO] pair chme-chme, state nvt400, iteration 1: 0.972231
+[INFO] pair chme-chme, state nvt550, iteration 1: 0.972456
+[INFO] pair chme-chme, state npt550, iteration 1: 0.934463
+[INFO] pair chme-chme, state nvt700, iteration 1: 0.973967
+[INFO] -------- Iteration 2 --------
+[INFO] Launching 2 GPU threads...
+[INFO]     Launched HOOMD in nvt550
+[INFO]     Launched HOOMD in nvt700
+[INFO]     Finished in nvt550.
+[INFO]     Finished in nvt700.
+[INFO]     Launched HOOMD in nvt400
+[INFO]     Launched HOOMD in npt550
+[INFO]     Finished in nvt400.
+[INFO]     Finished in npt550.
+[INFO] pair chead-chead, state nvt400, iteration 2: 0.939522
+[INFO] pair chead-chead, state nvt550, iteration 2: 0.950916
+[INFO] pair chead-chead, state npt550, iteration 2: 0.929774
+[INFO] pair chead-chead, state nvt700, iteration 2: 0.952197
+[INFO] pair chead-ring, state nvt400, iteration 2: 0.970792
+[INFO] pair chead-ring, state nvt550, iteration 2: 0.973315
+[INFO] pair chead-ring, state npt550, iteration 2: 0.947296
+[INFO] pair chead-ring, state nvt700, iteration 2: 0.973873
+[INFO] pair chead-ctail, state nvt400, iteration 2: 0.961628
+[INFO] pair chead-ctail, state nvt550, iteration 2: 0.968593
+[INFO] pair chead-ctail, state npt550, iteration 2: 0.965015
+[INFO] pair chead-ctail, state nvt700, iteration 2: 0.971451
+[INFO] pair chead-cterm, state nvt400, iteration 2: 0.937210
+[INFO] pair chead-cterm, state nvt550, iteration 2: 0.947558
+[INFO] pair chead-cterm, state npt550, iteration 2: 0.946546
+[INFO] pair chead-cterm, state nvt700, iteration 2: 0.952617
+[INFO] pair chead-chme, state nvt400, iteration 2: 0.967763
+[INFO] pair chead-chme, state nvt550, iteration 2: 0.971082
+[INFO] pair chead-chme, state npt550, iteration 2: 0.948259
+[INFO] pair chead-chme, state nvt700, iteration 2: 0.972624
+[INFO] pair ring-ring, state nvt400, iteration 2: 0.971973
+[INFO] pair ring-ring, state nvt550, iteration 2: 0.969675
+[INFO] pair ring-ring, state npt550, iteration 2: 0.938779
+[INFO] pair ring-ring, state nvt700, iteration 2: 0.969622
+[INFO] pair ring-ctail, state nvt400, iteration 2: 0.976298
+[INFO] pair ring-ctail, state nvt550, iteration 2: 0.983207
+[INFO] pair ring-ctail, state npt550, iteration 2: 0.970480
+[INFO] pair ring-ctail, state nvt700, iteration 2: 0.985648
+[INFO] pair ring-cterm, state nvt400, iteration 2: 0.963492
+[INFO] pair ring-cterm, state nvt550, iteration 2: 0.966017
+[INFO] pair ring-cterm, state npt550, iteration 2: 0.965371
+[INFO] pair ring-cterm, state nvt700, iteration 2: 0.968547
+[INFO] pair ring-chme, state nvt400, iteration 2: 0.976905
+[INFO] pair ring-chme, state nvt550, iteration 2: 0.976814
+[INFO] pair ring-chme, state npt550, iteration 2: 0.945384
+[INFO] pair ring-chme, state nvt700, iteration 2: 0.977574
+[INFO] pair ctail-ctail, state nvt400, iteration 2: 0.953480
+[INFO] pair ctail-ctail, state nvt550, iteration 2: 0.964087
+[INFO] pair ctail-ctail, state npt550, iteration 2: 0.962813
+[INFO] pair ctail-ctail, state nvt700, iteration 2: 0.967973
+[INFO] pair ctail-cterm, state nvt400, iteration 2: 0.955623
+[INFO] pair ctail-cterm, state nvt550, iteration 2: 0.962525
+[INFO] pair ctail-cterm, state npt550, iteration 2: 0.963570
+[INFO] pair ctail-cterm, state nvt700, iteration 2: 0.965060
+[INFO] pair ctail-chme, state nvt400, iteration 2: 0.976540
+[INFO] pair ctail-chme, state nvt550, iteration 2: 0.979287
+[INFO] pair ctail-chme, state npt550, iteration 2: 0.984184
+[INFO] pair ctail-chme, state nvt700, iteration 2: 0.978688
+[INFO] pair cterm-cterm, state nvt400, iteration 2: 0.904567
+[INFO] pair cterm-cterm, state nvt550, iteration 2: 0.914946
+[INFO] pair cterm-cterm, state npt550, iteration 2: 0.921800
+[INFO] pair cterm-cterm, state nvt700, iteration 2: 0.924435
+[INFO] pair cterm-chme, state nvt400, iteration 2: 0.948680
+[INFO] pair cterm-chme, state nvt550, iteration 2: 0.951309
+[INFO] pair cterm-chme, state npt550, iteration 2: 0.961163
+[INFO] pair cterm-chme, state nvt700, iteration 2: 0.952978
+[INFO] pair chme-chme, state nvt400, iteration 2: 0.977239
+[INFO] pair chme-chme, state nvt550, iteration 2: 0.977071
+[INFO] pair chme-chme, state npt550, iteration 2: 0.949794
+[INFO] pair chme-chme, state nvt700, iteration 2: 0.978126
+[INFO] -------- Iteration 3 --------
+[INFO] Launching 2 GPU threads...
+[INFO]     Launched HOOMD in nvt700
+[INFO]     Launched HOOMD in nvt550
+[INFO]     Finished in nvt550.
+[INFO]     Launched HOOMD in nvt400
+[INFO]     Finished in nvt700.
+[INFO]     Launched HOOMD in npt550
+[INFO]     Finished in nvt400.
+[INFO]     Finished in npt550.
+[INFO] pair chead-chead, state nvt400, iteration 3: 0.947086
+[INFO] pair chead-chead, state nvt550, iteration 3: 0.957093
+[INFO] pair chead-chead, state npt550, iteration 3: 0.944063
+[INFO] pair chead-chead, state nvt700, iteration 3: 0.957408
+[INFO] pair chead-ring, state nvt400, iteration 3: 0.973621
+[INFO] pair chead-ring, state nvt550, iteration 3: 0.976144
+[INFO] pair chead-ring, state npt550, iteration 3: 0.957502
+[INFO] pair chead-ring, state nvt700, iteration 3: 0.976554
+[INFO] pair chead-ctail, state nvt400, iteration 3: 0.967652
+[INFO] pair chead-ctail, state nvt550, iteration 3: 0.972991
+[INFO] pair chead-ctail, state npt550, iteration 3: 0.968799
+[INFO] pair chead-ctail, state nvt700, iteration 3: 0.974963
+[INFO] pair chead-cterm, state nvt400, iteration 3: 0.946127
+[INFO] pair chead-cterm, state nvt550, iteration 3: 0.955161
+[INFO] pair chead-cterm, state npt550, iteration 3: 0.954222
+[INFO] pair chead-cterm, state nvt700, iteration 3: 0.958800
+[INFO] pair chead-chme, state nvt400, iteration 3: 0.972191
+[INFO] pair chead-chme, state nvt550, iteration 3: 0.975471
+[INFO] pair chead-chme, state npt550, iteration 3: 0.958867
+[INFO] pair chead-chme, state nvt700, iteration 3: 0.976531
+[INFO] pair ring-ring, state nvt400, iteration 3: 0.977033
+[INFO] pair ring-ring, state nvt550, iteration 3: 0.975084
+[INFO] pair ring-ring, state npt550, iteration 3: 0.952493
+[INFO] pair ring-ring, state nvt700, iteration 3: 0.974609
+[INFO] pair ring-ctail, state nvt400, iteration 3: 0.979380
+[INFO] pair ring-ctail, state nvt550, iteration 3: 0.985568
+[INFO] pair ring-ctail, state npt550, iteration 3: 0.971671
+[INFO] pair ring-ctail, state nvt700, iteration 3: 0.987900
+[INFO] pair ring-cterm, state nvt400, iteration 3: 0.969990
+[INFO] pair ring-cterm, state nvt550, iteration 3: 0.971585
+[INFO] pair ring-cterm, state npt550, iteration 3: 0.970207
+[INFO] pair ring-cterm, state nvt700, iteration 3: 0.974402
+[INFO] pair ring-chme, state nvt400, iteration 3: 0.981513
+[INFO] pair ring-chme, state nvt550, iteration 3: 0.981053
+[INFO] pair ring-chme, state npt550, iteration 3: 0.958463
+[INFO] pair ring-chme, state nvt700, iteration 3: 0.981422
+[INFO] pair ctail-ctail, state nvt400, iteration 3: 0.958723
+[INFO] pair ctail-ctail, state nvt550, iteration 3: 0.968607
+[INFO] pair ctail-ctail, state npt550, iteration 3: 0.968076
+[INFO] pair ctail-ctail, state nvt700, iteration 3: 0.971552
+[INFO] pair ctail-cterm, state nvt400, iteration 3: 0.961263
+[INFO] pair ctail-cterm, state nvt550, iteration 3: 0.966712
+[INFO] pair ctail-cterm, state npt550, iteration 3: 0.967747
+[INFO] pair ctail-cterm, state nvt700, iteration 3: 0.968187
+[INFO] pair ctail-chme, state nvt400, iteration 3: 0.981203
+[INFO] pair ctail-chme, state nvt550, iteration 3: 0.983191
+[INFO] pair ctail-chme, state npt550, iteration 3: 0.983153
+[INFO] pair ctail-chme, state nvt700, iteration 3: 0.982362
+[INFO] pair cterm-cterm, state nvt400, iteration 3: 0.919258
+[INFO] pair cterm-cterm, state nvt550, iteration 3: 0.927885
+[INFO] pair cterm-cterm, state npt550, iteration 3: 0.930778
+[INFO] pair cterm-cterm, state nvt700, iteration 3: 0.934818
+[INFO] pair cterm-chme, state nvt400, iteration 3: 0.958689
+[INFO] pair cterm-chme, state nvt550, iteration 3: 0.960700
+[INFO] pair cterm-chme, state npt550, iteration 3: 0.968977
+[INFO] pair cterm-chme, state nvt700, iteration 3: 0.962059
+[INFO] pair chme-chme, state nvt400, iteration 3: 0.980260
+[INFO] pair chme-chme, state nvt550, iteration 3: 0.979768
+[INFO] pair chme-chme, state npt550, iteration 3: 0.961922
+[INFO] pair chme-chme, state nvt700, iteration 3: 0.981053
+[INFO] -------- Iteration 4 --------
+[INFO] Launching 2 GPU threads...
+[INFO]     Launched HOOMD in nvt700
+[INFO]     Launched HOOMD in nvt550
+[INFO]     Finished in nvt550.
+[INFO]     Launched HOOMD in nvt400
+[INFO]     Finished in nvt700.
+[INFO]     Launched HOOMD in npt550
+[INFO]     Finished in nvt400.
+[INFO]     Finished in npt550.
+[INFO] pair chead-chead, state nvt400, iteration 4: 0.953123
+[INFO] pair chead-chead, state nvt550, iteration 4: 0.962060
+[INFO] pair chead-chead, state npt550, iteration 4: 0.953878
+[INFO] pair chead-chead, state nvt700, iteration 4: 0.961804
+[INFO] pair chead-ring, state nvt400, iteration 4: 0.976414
+[INFO] pair chead-ring, state nvt550, iteration 4: 0.978821
+[INFO] pair chead-ring, state npt550, iteration 4: 0.965032
+[INFO] pair chead-ring, state nvt700, iteration 4: 0.979141
+[INFO] pair chead-ctail, state nvt400, iteration 4: 0.972405
+[INFO] pair chead-ctail, state nvt550, iteration 4: 0.976430
+[INFO] pair chead-ctail, state npt550, iteration 4: 0.972154
+[INFO] pair chead-ctail, state nvt700, iteration 4: 0.977537
+[INFO] pair chead-cterm, state nvt400, iteration 4: 0.953872
+[INFO] pair chead-cterm, state nvt550, iteration 4: 0.961590
+[INFO] pair chead-cterm, state npt550, iteration 4: 0.959683
+[INFO] pair chead-cterm, state nvt700, iteration 4: 0.963720
+[INFO] pair chead-chme, state nvt400, iteration 4: 0.975527
+[INFO] pair chead-chme, state nvt550, iteration 4: 0.978494
+[INFO] pair chead-chme, state npt550, iteration 4: 0.966801
+[INFO] pair chead-chme, state nvt700, iteration 4: 0.979335
+[INFO] pair ring-ring, state nvt400, iteration 4: 0.979985
+[INFO] pair ring-ring, state nvt550, iteration 4: 0.979387
+[INFO] pair ring-ring, state npt550, iteration 4: 0.962893
+[INFO] pair ring-ring, state nvt700, iteration 4: 0.978703
+[INFO] pair ring-ctail, state nvt400, iteration 4: 0.981757
+[INFO] pair ring-ctail, state nvt550, iteration 4: 0.987054
+[INFO] pair ring-ctail, state npt550, iteration 4: 0.973282
+[INFO] pair ring-ctail, state nvt700, iteration 4: 0.989283
+[INFO] pair ring-cterm, state nvt400, iteration 4: 0.975331
+[INFO] pair ring-cterm, state nvt550, iteration 4: 0.975809
+[INFO] pair ring-cterm, state npt550, iteration 4: 0.973282
+[INFO] pair ring-cterm, state nvt700, iteration 4: 0.978158
+[INFO] pair ring-chme, state nvt400, iteration 4: 0.983866
+[INFO] pair ring-chme, state nvt550, iteration 4: 0.984203
+[INFO] pair ring-chme, state npt550, iteration 4: 0.968277
+[INFO] pair ring-chme, state nvt700, iteration 4: 0.984390
+[INFO] pair ctail-ctail, state nvt400, iteration 4: 0.963324
+[INFO] pair ctail-ctail, state nvt550, iteration 4: 0.972688
+[INFO] pair ctail-ctail, state npt550, iteration 4: 0.971363
+[INFO] pair ctail-ctail, state nvt700, iteration 4: 0.974528
+[INFO] pair ctail-cterm, state nvt400, iteration 4: 0.966221
+[INFO] pair ctail-cterm, state nvt550, iteration 4: 0.970250
+[INFO] pair ctail-cterm, state npt550, iteration 4: 0.969620
+[INFO] pair ctail-cterm, state nvt700, iteration 4: 0.970890
+[INFO] pair ctail-chme, state nvt400, iteration 4: 0.985173
+[INFO] pair ctail-chme, state nvt550, iteration 4: 0.986244
+[INFO] pair ctail-chme, state npt550, iteration 4: 0.983531
+[INFO] pair ctail-chme, state nvt700, iteration 4: 0.984889
+[INFO] pair cterm-cterm, state nvt400, iteration 4: 0.931037
+[INFO] pair cterm-cterm, state nvt550, iteration 4: 0.937446
+[INFO] pair cterm-cterm, state npt550, iteration 4: 0.937166
+[INFO] pair cterm-cterm, state nvt700, iteration 4: 0.941530
+[INFO] pair cterm-chme, state nvt400, iteration 4: 0.966372
+[INFO] pair cterm-chme, state nvt550, iteration 4: 0.967341
+[INFO] pair cterm-chme, state npt550, iteration 4: 0.974161
+[INFO] pair cterm-chme, state nvt700, iteration 4: 0.968294
+[INFO] pair chme-chme, state nvt400, iteration 4: 0.982434
+[INFO] pair chme-chme, state nvt550, iteration 4: 0.982263
+[INFO] pair chme-chme, state npt550, iteration 4: 0.970745
+[INFO] pair chme-chme, state nvt700, iteration 4: 0.983009
+[INFO] -------- Iteration 5 --------
+[INFO] Launching 2 GPU threads...
+[INFO]     Launched HOOMD in nvt550
+[INFO]     Launched HOOMD in nvt700
+[INFO]     Finished in nvt550.
+[INFO]     Finished in nvt700.
+[INFO]     Launched HOOMD in nvt400
+[INFO]     Launched HOOMD in npt550
+[INFO]     Finished in nvt400.
+[INFO]     Finished in npt550.
+[INFO] pair chead-chead, state nvt400, iteration 5: 0.959523
+[INFO] pair chead-chead, state nvt550, iteration 5: 0.966368
+[INFO] pair chead-chead, state npt550, iteration 5: 0.961811
+[INFO] pair chead-chead, state nvt700, iteration 5: 0.965523
+[INFO] pair chead-ring, state nvt400, iteration 5: 0.979329
+[INFO] pair chead-ring, state nvt550, iteration 5: 0.981037
+[INFO] pair chead-ring, state npt550, iteration 5: 0.970418
+[INFO] pair chead-ring, state nvt700, iteration 5: 0.981094
+[INFO] pair chead-ctail, state nvt400, iteration 5: 0.977004
+[INFO] pair chead-ctail, state nvt550, iteration 5: 0.979518
+[INFO] pair chead-ctail, state npt550, iteration 5: 0.974792
+[INFO] pair chead-ctail, state nvt700, iteration 5: 0.979732
+[INFO] pair chead-cterm, state nvt400, iteration 5: 0.961122
+[INFO] pair chead-cterm, state nvt550, iteration 5: 0.966531
+[INFO] pair chead-cterm, state npt550, iteration 5: 0.964752
+[INFO] pair chead-cterm, state nvt700, iteration 5: 0.967782
+[INFO] pair chead-chme, state nvt400, iteration 5: 0.978747
+[INFO] pair chead-chme, state nvt550, iteration 5: 0.981071
+[INFO] pair chead-chme, state npt550, iteration 5: 0.972286
+[INFO] pair chead-chme, state nvt700, iteration 5: 0.981631
+[INFO] pair ring-ring, state nvt400, iteration 5: 0.982507
+[INFO] pair ring-ring, state nvt550, iteration 5: 0.981841
+[INFO] pair ring-ring, state npt550, iteration 5: 0.968922
+[INFO] pair ring-ring, state nvt700, iteration 5: 0.981699
+[INFO] pair ring-ctail, state nvt400, iteration 5: 0.983798
+[INFO] pair ring-ctail, state nvt550, iteration 5: 0.988405
+[INFO] pair ring-ctail, state npt550, iteration 5: 0.974902
+[INFO] pair ring-ctail, state nvt700, iteration 5: 0.990326
+[INFO] pair ring-cterm, state nvt400, iteration 5: 0.979021
+[INFO] pair ring-cterm, state nvt550, iteration 5: 0.978882
+[INFO] pair ring-cterm, state npt550, iteration 5: 0.975202
+[INFO] pair ring-cterm, state nvt700, iteration 5: 0.980489
+[INFO] pair ring-chme, state nvt400, iteration 5: 0.985567
+[INFO] pair ring-chme, state nvt550, iteration 5: 0.986143
+[INFO] pair ring-chme, state npt550, iteration 5: 0.974356
+[INFO] pair ring-chme, state nvt700, iteration 5: 0.986351
+[INFO] pair ctail-ctail, state nvt400, iteration 5: 0.968119
+[INFO] pair ctail-ctail, state nvt550, iteration 5: 0.975569
+[INFO] pair ctail-ctail, state npt550, iteration 5: 0.974859
+[INFO] pair ctail-ctail, state nvt700, iteration 5: 0.976981
+[INFO] pair ctail-cterm, state nvt400, iteration 5: 0.971247
+[INFO] pair ctail-cterm, state nvt550, iteration 5: 0.973221
+[INFO] pair ctail-cterm, state npt550, iteration 5: 0.971141
+[INFO] pair ctail-cterm, state nvt700, iteration 5: 0.972978
+[INFO] pair ctail-chme, state nvt400, iteration 5: 0.988555
+[INFO] pair ctail-chme, state nvt550, iteration 5: 0.988568
+[INFO] pair ctail-chme, state npt550, iteration 5: 0.983668
+[INFO] pair ctail-chme, state nvt700, iteration 5: 0.986646
+[INFO] pair cterm-cterm, state nvt400, iteration 5: 0.940845
+[INFO] pair cterm-cterm, state nvt550, iteration 5: 0.943957
+[INFO] pair cterm-cterm, state npt550, iteration 5: 0.942792
+[INFO] pair cterm-cterm, state nvt700, iteration 5: 0.947193
+[INFO] pair cterm-chme, state nvt400, iteration 5: 0.972268
+[INFO] pair cterm-chme, state nvt550, iteration 5: 0.972235
+[INFO] pair cterm-chme, state npt550, iteration 5: 0.977429
+[INFO] pair cterm-chme, state nvt700, iteration 5: 0.972904
+[INFO] pair chme-chme, state nvt400, iteration 5: 0.984010
+[INFO] pair chme-chme, state nvt550, iteration 5: 0.983670
+[INFO] pair chme-chme, state npt550, iteration 5: 0.975953
+[INFO] pair chme-chme, state nvt700, iteration 5: 0.984720
+[INFO] -------- Iteration 6 --------
+[INFO] Launching 2 GPU threads...
+[INFO]     Launched HOOMD in nvt550
+[INFO]     Finished in nvt550.
+[INFO]     Launched HOOMD in nvt700
+[INFO]     Finished in nvt700.
+[INFO]     Launched HOOMD in nvt400
+[INFO]     Launched HOOMD in npt550
+[INFO]     Finished in nvt400.
+[INFO]     Finished in npt550.
+[INFO] pair chead-chead, state nvt400, iteration 6: 0.965367
+[INFO] pair chead-chead, state nvt550, iteration 6: 0.969769
+[INFO] pair chead-chead, state npt550, iteration 6: 0.967539
+[INFO] pair chead-chead, state nvt700, iteration 6: 0.968431
+[INFO] pair chead-ring, state nvt400, iteration 6: 0.981877
+[INFO] pair chead-ring, state nvt550, iteration 6: 0.983038
+[INFO] pair chead-ring, state npt550, iteration 6: 0.974453
+[INFO] pair chead-ring, state nvt700, iteration 6: 0.982834
+[INFO] pair chead-ctail, state nvt400, iteration 6: 0.980068
+[INFO] pair chead-ctail, state nvt550, iteration 6: 0.981457
+[INFO] pair chead-ctail, state npt550, iteration 6: 0.977321
+[INFO] pair chead-ctail, state nvt700, iteration 6: 0.981518
+[INFO] pair chead-cterm, state nvt400, iteration 6: 0.966965
+[INFO] pair chead-cterm, state nvt550, iteration 6: 0.970615
+[INFO] pair chead-cterm, state npt550, iteration 6: 0.968024
+[INFO] pair chead-cterm, state nvt700, iteration 6: 0.970571
+[INFO] pair chead-chme, state nvt400, iteration 6: 0.981289
+[INFO] pair chead-chme, state nvt550, iteration 6: 0.983044
+[INFO] pair chead-chme, state npt550, iteration 6: 0.976193
+[INFO] pair chead-chme, state nvt700, iteration 6: 0.983158
+[INFO] pair ring-ring, state nvt400, iteration 6: 0.984654
+[INFO] pair ring-ring, state nvt550, iteration 6: 0.983560
+[INFO] pair ring-ring, state npt550, iteration 6: 0.973069
+[INFO] pair ring-ring, state nvt700, iteration 6: 0.984031
+[INFO] pair ring-ctail, state nvt400, iteration 6: 0.985409
+[INFO] pair ring-ctail, state nvt550, iteration 6: 0.989236
+[INFO] pair ring-ctail, state npt550, iteration 6: 0.976519
+[INFO] pair ring-ctail, state nvt700, iteration 6: 0.990915
+[INFO] pair ring-cterm, state nvt400, iteration 6: 0.981942
+[INFO] pair ring-cterm, state nvt550, iteration 6: 0.981369
+[INFO] pair ring-cterm, state npt550, iteration 6: 0.976429
+[INFO] pair ring-cterm, state nvt700, iteration 6: 0.981801
+[INFO] pair ring-chme, state nvt400, iteration 6: 0.987198
+[INFO] pair ring-chme, state nvt550, iteration 6: 0.987412
+[INFO] pair ring-chme, state npt550, iteration 6: 0.977564
+[INFO] pair ring-chme, state nvt700, iteration 6: 0.987895
+[INFO] pair ctail-ctail, state nvt400, iteration 6: 0.971779
+[INFO] pair ctail-ctail, state nvt550, iteration 6: 0.978396
+[INFO] pair ctail-ctail, state npt550, iteration 6: 0.976728
+[INFO] pair ctail-ctail, state nvt700, iteration 6: 0.978803
+[INFO] pair ctail-cterm, state nvt400, iteration 6: 0.975118
+[INFO] pair ctail-cterm, state nvt550, iteration 6: 0.975429
+[INFO] pair ctail-cterm, state npt550, iteration 6: 0.972430
+[INFO] pair ctail-cterm, state nvt700, iteration 6: 0.975161
+[INFO] pair ctail-chme, state nvt400, iteration 6: 0.990812
+[INFO] pair ctail-chme, state nvt550, iteration 6: 0.990131
+[INFO] pair ctail-chme, state npt550, iteration 6: 0.984733
+[INFO] pair ctail-chme, state nvt700, iteration 6: 0.987811
+[INFO] pair cterm-cterm, state nvt400, iteration 6: 0.949079
+[INFO] pair cterm-cterm, state nvt550, iteration 6: 0.949243
+[INFO] pair cterm-cterm, state npt550, iteration 6: 0.947850
+[INFO] pair cterm-cterm, state nvt700, iteration 6: 0.951979
+[INFO] pair cterm-chme, state nvt400, iteration 6: 0.976730
+[INFO] pair cterm-chme, state nvt550, iteration 6: 0.975980
+[INFO] pair cterm-chme, state npt550, iteration 6: 0.980000
+[INFO] pair cterm-chme, state nvt700, iteration 6: 0.975946
+[INFO] pair chme-chme, state nvt400, iteration 6: 0.985341
+[INFO] pair chme-chme, state nvt550, iteration 6: 0.984966
+[INFO] pair chme-chme, state npt550, iteration 6: 0.980028
+[INFO] pair chme-chme, state nvt700, iteration 6: 0.986066
+[INFO] -------- Iteration 7 --------
+[INFO] Launching 2 GPU threads...
+[INFO]     Launched HOOMD in nvt550
+[INFO]     Launched HOOMD in nvt700
+[INFO]     Finished in nvt550.
+[INFO]     Finished in nvt700.
+[INFO]     Launched HOOMD in nvt400
+[INFO]     Launched HOOMD in npt550
+[INFO]     Finished in nvt400.
+[INFO]     Finished in npt550.
+[INFO] pair chead-chead, state nvt400, iteration 7: 0.969777
+[INFO] pair chead-chead, state nvt550, iteration 7: 0.973342
+[INFO] pair chead-chead, state npt550, iteration 7: 0.972191
+[INFO] pair chead-chead, state nvt700, iteration 7: 0.971028
+[INFO] pair chead-ring, state nvt400, iteration 7: 0.983982
+[INFO] pair chead-ring, state nvt550, iteration 7: 0.984585
+[INFO] pair chead-ring, state npt550, iteration 7: 0.977848
+[INFO] pair chead-ring, state nvt700, iteration 7: 0.984310
+[INFO] pair chead-ctail, state nvt400, iteration 7: 0.982440
+[INFO] pair chead-ctail, state nvt550, iteration 7: 0.983423
+[INFO] pair chead-ctail, state npt550, iteration 7: 0.979027
+[INFO] pair chead-ctail, state nvt700, iteration 7: 0.982650
+[INFO] pair chead-cterm, state nvt400, iteration 7: 0.972142
+[INFO] pair chead-cterm, state nvt550, iteration 7: 0.973468
+[INFO] pair chead-cterm, state npt550, iteration 7: 0.971400
+[INFO] pair chead-cterm, state nvt700, iteration 7: 0.972896
+[INFO] pair chead-chme, state nvt400, iteration 7: 0.983397
+[INFO] pair chead-chme, state nvt550, iteration 7: 0.984574
+[INFO] pair chead-chme, state npt550, iteration 7: 0.979593
+[INFO] pair chead-chme, state nvt700, iteration 7: 0.984341
+[INFO] pair ring-ring, state nvt400, iteration 7: 0.986528
+[INFO] pair ring-ring, state nvt550, iteration 7: 0.985113
+[INFO] pair ring-ring, state npt550, iteration 7: 0.976075
+[INFO] pair ring-ring, state nvt700, iteration 7: 0.985354
+[INFO] pair ring-ctail, state nvt400, iteration 7: 0.986741
+[INFO] pair ring-ctail, state nvt550, iteration 7: 0.990087
+[INFO] pair ring-ctail, state npt550, iteration 7: 0.978178
+[INFO] pair ring-ctail, state nvt700, iteration 7: 0.991521
+[INFO] pair ring-cterm, state nvt400, iteration 7: 0.984229
+[INFO] pair ring-cterm, state nvt550, iteration 7: 0.983292
+[INFO] pair ring-cterm, state npt550, iteration 7: 0.977758
+[INFO] pair ring-cterm, state nvt700, iteration 7: 0.982509
+[INFO] pair ring-chme, state nvt400, iteration 7: 0.988424
+[INFO] pair ring-chme, state nvt550, iteration 7: 0.988479
+[INFO] pair ring-chme, state npt550, iteration 7: 0.980265
+[INFO] pair ring-chme, state nvt700, iteration 7: 0.988696
+[INFO] pair ctail-ctail, state nvt400, iteration 7: 0.974787
+[INFO] pair ctail-ctail, state nvt550, iteration 7: 0.980284
+[INFO] pair ctail-ctail, state npt550, iteration 7: 0.978512
+[INFO] pair ctail-ctail, state nvt700, iteration 7: 0.980586
+[INFO] pair ctail-cterm, state nvt400, iteration 7: 0.978316
+[INFO] pair ctail-cterm, state nvt550, iteration 7: 0.977587
+[INFO] pair ctail-cterm, state npt550, iteration 7: 0.974165
+[INFO] pair ctail-cterm, state nvt700, iteration 7: 0.976266
+[INFO] pair ctail-chme, state nvt400, iteration 7: 0.992296
+[INFO] pair ctail-chme, state nvt550, iteration 7: 0.991091
+[INFO] pair ctail-chme, state npt550, iteration 7: 0.985623
+[INFO] pair ctail-chme, state nvt700, iteration 7: 0.988726
+[INFO] pair cterm-cterm, state nvt400, iteration 7: 0.955968
+[INFO] pair cterm-cterm, state nvt550, iteration 7: 0.953881
+[INFO] pair cterm-cterm, state npt550, iteration 7: 0.953124
+[INFO] pair cterm-cterm, state nvt700, iteration 7: 0.954814
+[INFO] pair cterm-chme, state nvt400, iteration 7: 0.980595
+[INFO] pair cterm-chme, state nvt550, iteration 7: 0.979295
+[INFO] pair cterm-chme, state npt550, iteration 7: 0.981895
+[INFO] pair cterm-chme, state nvt700, iteration 7: 0.978854
+[INFO] pair chme-chme, state nvt400, iteration 7: 0.986178
+[INFO] pair chme-chme, state nvt550, iteration 7: 0.986231
+[INFO] pair chme-chme, state npt550, iteration 7: 0.982912
+[INFO] pair chme-chme, state nvt700, iteration 7: 0.986745
