@@ -1,5 +1,7 @@
 import os.path
 
+from msibi_utils.parse_logfile import parse_logfile
+
 
 def plot_pair_fits(pair, fits, use_agg=False):
     if use_agg:
@@ -36,7 +38,7 @@ def plot_all(filename, use_agg=False):
     The filename should where the optimization output was redirected, as the 
     format is determined by the MSIBI.optimize() function.
     """
-    fits = find_fits(filename)
+    fits = parse_logfile(filename)
     if not os.path.exists('figures'):
         os.makedirs('figures')
     for pair in fits:
