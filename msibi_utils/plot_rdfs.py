@@ -72,7 +72,7 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
     fig.savefig('figures/{t1}-{t2}-{state}-step{step}.pdf'.format(**locals()))
     plt.close('all')
 
-def plot_all_last_iteration(logfile_name, target_dir, 
+def plot_all_rdfs(logfile_name, target_dir, 
         potentials_dir='./potentials', rdf_dir = './rdfs', step=-1, use_agg=False):
     """Plot the RDF vs. the target for each pair at each state
 
