@@ -1,5 +1,6 @@
 import os.path
 
+from msibi_utils.parse_logfile import parse_logfile
 import numpy as np
 
 
@@ -40,30 +41,35 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
         mpl.use('Agg')
     import matplotlib.pyplot as plt
     fig, ax =  plt.subplots()
-    pot_name = ''.join('step', step, '.pot.', t1, '-', t2, '.txt')
+    pot_name = 'step{step}.pot.{t1}-{t2}.txt'.format(**locals())
     pot_file = os.path.join(potentials_dir, pot_name)
-    rdf_name = ''.join(t1, '-', t2, '-', state, '.txt')
+    rdf_name = '{t1}-{t2}-{state}.txt'.format(**locals())
     rdf_file = os.path.join(target_dir, rdf_name)
     try:
         potential = np.loadtxt(pot_file)
         rdfs = [np.loadtxt(rdf_file)]
     except:
         raise IOError('Potential or target RDF file not found')
-    rdf_name = ''.join('pair_', t1, '-', t2, '-state_', state, '-step', step, '.txt')
-    rdf_file = os.path.join(rdf_dir, rdf_file)
+    potential[:, 0] *= to_angstrom
+    potential[:, 1] *= to_kcalpermol
+    rdfs[0][:, 0] *= to_angstrom
+    rdf_name = 'pair_{t1}-{t2}-state_{state}-step{step}.txt'.format(**locals())
+    rdf_file = os.path.join(rdf_dir, rdf_name)
     rdfs.append(np.loadtxt(rdf_file))
-    for rdf, label in zip(data, ['Target', 'Query']):
-        ax.plot(rdf[:, 0]*to_angstrom, rdf[:, 1], label=label)
+    rdfs[1][:, 0] *= to_angstrom
+    for rdf, label in zip(rdfs, ['Target', 'Query']):
+        ax.plot(rdf[:, 0], rdf[:, 1], label=label)
     ax.set_xlabel(u'r, \u00c5')
     ax.set_ylabel('g(r)')
     ax.set_ylim(bottom=0)
+    ax.set_tit
 
     pot_ax = ax.twinx()
-    pot_ax.plot(potential[:, 0]*to_angstrom, potential[:, 1]*to_kcalpermol, "#0485d1")
+    pot_ax.plot(potential[:, 0], potential[:, 1], "#0485d1")
     pot_ax.set_ylabel('V(r), kcal/mol')
-    pot_ax.set_ylim(bottom=0.1*1.1*np.amin(potential[5:, 1]))
-    pot_ax.set_ylim(top=-1.1*0.1*np.amin(potential[5:, 1]))
-    ax.set_xlim(rdfs[0][-1, 0])
+    pot_ax.set_ylim(bottom=1.1*np.amin(potential[5:, 1]))
+    pot_ax.set_ylim(top=-1.1*np.amin(potential[5:, 1]))
+    ax.set_xlim(right=rdfs[0][-1, 0])
     extra = [[potential[-1, 0], ax.get_xlim()[1]], [0, 0]]
     pot_ax.plot(extra[0], extra[1], '#0485d1')
 
@@ -73,7 +79,8 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
     plt.close('all')
 
 def plot_all_rdfs(logfile_name, target_dir, 
-        potentials_dir='./potentials', rdf_dir = './rdfs', step=-1, use_agg=False):
+        potentials_dir='./potentials', rdf_dir = './rdfs', step=-1, 
+        use_agg=False, to_angstrom=6.0, to_kcalpermol=0.1):
     """Plot the RDF vs. the target for each pair at each state
 
     Args
@@ -101,9 +108,9 @@ def plot_all_rdfs(logfile_name, target_dir,
     logfile_info = parse_logfile(logfile_name)
     for pair, state in logfile_info.iteritems():
         for state, fits in state.iteritems():
-            if step = -1:
-                new_step = len(fits)
+            if step == -1:
+                new_step = len(fits) - 1
             type1 = pair.split('-')[0]
             type2 = pair.split('-')[1]
-            plot_pair_at_state(type1, type2, state, new_step,
-                    potentials_dir, target_dir)
+            plot_pair_at_state(type1, type2, state, new_step, target_dir,
+                    potentials_dir, rdf_dir, use_agg, to_angstrom, to_kcalpermol)
