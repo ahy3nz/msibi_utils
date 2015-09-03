@@ -62,7 +62,7 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
     ax.set_xlabel(u'r, \u00c5')
     ax.set_ylabel('g(r)')
     ax.set_ylim(bottom=0)
-    ax.set_tit
+    ax.set_title('{t1}-{t2}, {state}'.format(**locals()))
 
     pot_ax = ax.twinx()
     pot_ax.plot(potential[:, 0], potential[:, 1], "#0485d1")
@@ -72,9 +72,10 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
     ax.set_xlim(right=rdfs[0][-1, 0])
     extra = [[potential[-1, 0], ax.get_xlim()[1]], [0, 0]]
     pot_ax.plot(extra[0], extra[1], '#0485d1')
-
     ax.legend(loc=0)
     fig.tight_layout()
+    if not os.path.exists('figures'):
+        os.makedirs('figures')
     fig.savefig('figures/{t1}-{t2}-{state}-step{step}.pdf'.format(**locals()))
     plt.close('all')
 
