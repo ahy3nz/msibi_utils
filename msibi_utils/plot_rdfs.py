@@ -113,8 +113,8 @@ def plot_all_rdfs(logfile_name, target_dir,
     for pair, state in logfile_info.iteritems():
         for state, fits in state.iteritems():
             if step == -1:
-                new_step = len(fits) - 1
+                step = len(fits) - 1
             type1 = pair.split('-')[0]
             type2 = pair.split('-')[1]
-            plot_pair_at_state(type1, type2, state, new_step, target_dir,
+            plot_pair_at_state(type1, type2, state, step, target_dir,
                     potentials_dir, rdf_dir, use_agg, to_angstrom, to_kcalpermol)
