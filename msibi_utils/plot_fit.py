@@ -19,7 +19,7 @@ def plot_pair_fits(pair, fits, use_agg=False):
     fig.savefig('figures/%s-fit.pdf' % pair)
     plt.close('all')
 
-def plot_all(filename, use_agg=False):
+def plot_all_fits(filename, use_agg=False):
     """Plot fitness function vs. iteration for each pair at each state
 
     Args
