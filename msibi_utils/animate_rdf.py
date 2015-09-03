@@ -8,7 +8,7 @@ import numpy as np
 
 def animate_pair_at_state(t1, t2, state, step, target_dir, 
         potentials_dir='./potentials', rdf_dir='./rdfs', use_agg=False, 
-        to_angstrom=6.0, to_kcalpermol=0.1):
+        to_angstrom=6.0, to_kcalpermol=0.1, n_skip=1):
     """Make an animation showing how the RDF and potential evolve for a particular pair at
     a particular state
 
@@ -32,6 +32,8 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
         Multiply distance units by this to get into Angstrom
     to_kcalpermol : float
         Multiple energy units by this to get into kcal/mol
+    n_skip : int
+        Skip this many RDFs when setting y-limits for rdf plot
 
     Returns
     -------
@@ -59,7 +61,7 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     ax.plot(target_rdf[:, 0], target_rdf[:, 1], label='Target')
     rdf_line, = ax.plot([], [], label='Query')
     if np.amax(rdfs[:, :, 1]) > np.amax(target_rdf[:, 1]):
-        ax.set_ylim(top=np.ceil(np.amax(rdfs[1:, :, 1])))
+        ax.set_ylim(top=np.ceil(np.amax(rdfs[n_skip:, :, 1])))
     ax.set_ylim(bottom=0)
     pot_ax = ax.twinx()
     pot_line, = pot_ax.plot([], [], c='#0485d1')
@@ -90,7 +92,7 @@ def _animate(step, rdf_line, pot_line, potentials, rdfs):
 
 def animate_all_pairs_states(logfile_name, target_dir, 
         potentials_dir='./potentials', rdf_dir = './rdfs', step=-1, 
-        use_agg=False, to_angstrom=6.0, to_kcalpermol=0.1):
+        use_agg=False, to_angstrom=6.0, to_kcalpermol=0.1, n_skip=1):
     """Plot the RDF vs. the target for each pair at each state
 
     Args
@@ -105,7 +107,8 @@ def animate_all_pairs_states(logfile_name, target_dir,
         Print RDFs and potentials from this step
     use_agg : bool
         True to use Agg backend, may be useful on clusters with no display
-
+    n_skip : int
+        Set ylimits on RDF plot with RDFs after n_skip
 
     Returns
     -------
@@ -119,8 +122,9 @@ def animate_all_pairs_states(logfile_name, target_dir,
     for pair, state in logfile_info.iteritems():
         for state, fits in state.iteritems():
             if step == -1:
-                step = len(fits) - 1
+                step = len(fits)
             type1 = pair.split('-')[0]
             type2 = pair.split('-')[1]
             animate_pair_at_state(type1, type2, state, step, target_dir,
-                    potentials_dir, rdf_dir, use_agg, to_angstrom, to_kcalpermol)
+                    potentials_dir, rdf_dir, use_agg, to_angstrom, 
+                    to_kcalpermol, n_skip)
