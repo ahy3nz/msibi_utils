@@ -47,9 +47,12 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
     rdf_file = os.path.join(target_dir, rdf_name)
     try:
         potential = np.loadtxt(pot_file)
-        rdfs = [np.loadtxt(rdf_file)]
     except:
-        raise IOError('Potential or target RDF file not found')
+        raise IOError('File not found: {pot_file}'.format(**locals()))
+    try:
+        rdfs = [np.loadtxt(rdf_file)]
+    except: 
+        raise IOError('File not found: {rdf_file}'.format(**locals()))
     potential[:, 0] *= to_angstrom
     potential[:, 1] *= to_kcalpermol
     rdfs[0][:, 0] *= to_angstrom
