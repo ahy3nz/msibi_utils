@@ -3,7 +3,7 @@ import os.path
 from msibi_utils.parse_logfile import parse_logfile
 
 
-def plot_pair_fits(pair, fits, use_agg=False):
+def plot_pair_fits(pair, fits, use_agg=False, ylims=(-1, -1)):
     if use_agg:
         import matplotlib as mpl
         mpl.use('Agg')
@@ -13,13 +13,14 @@ def plot_pair_fits(pair, fits, use_agg=False):
         ax.plot(fit, label=state)
     ax.set_xlabel('step')
     ax.set_ylabel('relative fit')
+    ax.set_ylim(ylims)
     ax.legend(loc='best')
     ax.set_title(pair)
     fig.tight_layout()
     fig.savefig('figures/%s-fit.pdf' % pair)
     plt.close('all')
 
-def plot_all_fits(filename, use_agg=False):
+def plot_all_fits(filename, use_agg=False, ylims=(-1, -1)):
     """Plot fitness function vs. iteration for each pair at each state
 
     Args
@@ -28,6 +29,8 @@ def plot_all_fits(filename, use_agg=False):
         Name of file from which to read.
     use_agg : bool
         Use Agg backend if True - may be useful on clusters with no display
+    ylims : iterable, len=2
+        Set the ylimits of the f_fit axes - useful for comparing plots of different pairs
 
     Returns
     -------
@@ -42,4 +45,4 @@ def plot_all_fits(filename, use_agg=False):
     if not os.path.exists('figures'):
         os.makedirs('figures')
     for pair in fits:
-        plot_pair_fits(pair, fits, use_agg)
+        plot_pair_fits(pair, fits, use_agg, ylims)
