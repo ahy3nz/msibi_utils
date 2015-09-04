@@ -72,23 +72,25 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     ax.set_xlim((0, rdfs[0, -1, 0]))
     ax.set_xlabel(u'r, \u00c5')
     ax.set_ylabel('g(r)')
+    iter_no = ax.text(0.95, 0.05, '', va='bottom', ha='right', transform=ax.transAxes)
     pot_ax.set_ylabel('V(r), kcal/mol', color=pot_line.get_c())
     for tl in pot_ax.get_yticklabels():
         tl.set_color(pot_line.get_c())
     ax.set_title('{t1}-{t2}, {state}'.format(**locals()))
     fig.tight_layout()
     anim = animation.FuncAnimation(fig, _animate, step, 
-            fargs=(rdf_line, pot_line, potentials, rdfs))
+            fargs=(rdf_line, pot_line, potentials, rdfs, iter_no))
     if not os.path.exists('animations'):
         os.makedirs('animations')
     anim.save(os.path.join('animations', '{t1}-{t2}-{state}.mp4'.format(**locals())))
     plt.close('all')
 
 
-def _animate(step, rdf_line, pot_line, potentials, rdfs):
+def _animate(step, rdf_line, pot_line, potentials, rdfs, iter_no):
     rdf_line.set_data(rdfs[step, :, 0], rdfs[step, :, 1])
     pot_line.set_data(potentials[step, :, 0], potentials[step, :, 1])
-    return rdf_line, pot_line
+    iter_no.set_text('%d' % step)
+    return rdf_line, pot_line, iter_no
 
 def animate_all_pairs_states(logfile_name, target_dir, 
         potentials_dir='./potentials', rdf_dir = './rdfs', step=-1, 
