@@ -1,4 +1,7 @@
 # msibi_utils
+
+[![Linux Build Status](https://travis-ci.org/tcmoore3/msibi_utils.svg?branch=master)](https://travis-ci.org/tcmoore3/msibi_utils)
+
 Some simple functions for analyzing MSIBI results. 
 
 This is a set of FUNctions to aid in visualizing the results from an MS IBI optimiztion. For the MS IBI code, see [this awesome repository](https://github.com/ctk3b/msibi). Details of the MS IBI algorithm can be found [here](http://dx.doi.org/10.1063/1.4880555).
