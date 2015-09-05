@@ -37,8 +37,8 @@ install:
   # Install "actual" dependencies from requirements.txt
   - python setup.py install
 
-#script:
-#  - coverage run --rcfile=.coveragerc --source=msibi setup.py test
-#
-#after_success:
-#  - coveralls
+script:
+  - coverage run --rcfile=.coveragerc --source=msibi setup.py test
+
+after_success:
+  - coveralls
