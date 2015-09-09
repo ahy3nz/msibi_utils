@@ -3,7 +3,7 @@ import os.path
 from msibi_utils.parse_logfile import parse_logfile
 
 
-def plot_pair_fits(pair, fits, use_agg=False, ylims=(-1, -1)):
+def plot_pair_fits(pair, fits, use_agg=False, ylims=(0, 1)):
     if use_agg:
         import matplotlib as mpl
         mpl.use('Agg')
