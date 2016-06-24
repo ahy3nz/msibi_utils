@@ -6,7 +6,7 @@ import numpy as np
 
 def plot_pair_at_state(t1, t2, state, step, target_dir, 
         potentials_dir='./potentials', rdf_dir='./rdfs', use_agg=False, 
-        to_angstrom=6.0, to_kcalpermol=0.1):
+        to_angstrom=6.0, to_kcalpermol=0.1, lw=None):
     """Plot the RDFs (target and CG) and potential on the same plot for a given pair at a
     given state.
 
@@ -61,7 +61,10 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
     rdfs.append(np.loadtxt(rdf_file))
     rdfs[1][:, 0] *= to_angstrom
     for rdf, label in zip(rdfs, ['Target', 'Query']):
-        ax.plot(rdf[:, 0], rdf[:, 1], label=label)
+        if lw: 
+            ax.plot(rdf[:, 0], rdf[:, 1], label=label, lw=lw)
+        else:
+            ax.plot(rdf[:, 0], rdf[:, 1], label=label)
     ax.set_xlabel(u'r, \u00c5')
     ax.set_ylabel('g(r)')
     ax.set_ylim(bottom=0)
@@ -84,7 +87,7 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
 
 def plot_all_rdfs(logfile_name, target_dir, 
         potentials_dir='./potentials', rdf_dir = './rdfs', step=-1, 
-        use_agg=False, to_angstrom=6.0, to_kcalpermol=0.1):
+        use_agg=False, to_angstrom=6.0, to_kcalpermol=0.1, lw=None):
     """Plot the RDF vs. the target for each pair at each state
 
     Args
@@ -99,7 +102,6 @@ def plot_all_rdfs(logfile_name, target_dir,
         Print RDFs and potentials from this step
     use_agg : bool
         True to use Agg backend, may be useful on clusters with no display
-
 
     Returns
     -------
@@ -117,4 +119,5 @@ def plot_all_rdfs(logfile_name, target_dir,
             type1 = pair.split('-')[0]
             type2 = pair.split('-')[1]
             plot_pair_at_state(type1, type2, state, step, target_dir,
-                    potentials_dir, rdf_dir, use_agg, to_angstrom, to_kcalpermol)
+                    potentials_dir, rdf_dir, use_agg, to_angstrom, to_kcalpermol,
+                    lw=lw)
