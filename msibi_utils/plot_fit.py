@@ -1,5 +1,7 @@
 import os.path
 
+import timplotlib as tpl
+
 from msibi_utils.parse_logfile import parse_logfile
 
 
@@ -16,8 +18,9 @@ def plot_pair_fits(pair, fits, use_agg=False, ylims=(0, 1)):
     ax.set_ylim(ylims)
     ax.legend(loc='best')
     ax.set_title(pair)
+    tpl.timize(ax)
     fig.tight_layout()
-    fig.savefig('figures/%s-fit.pdf' % pair)
+    fig.savefig('figures/%s-fit.pdf' % pair, transparent=True)
     plt.close('all')
 
 def plot_all_fits(filename, use_agg=False, ylims=(-1, -1)):

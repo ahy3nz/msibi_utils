@@ -1,5 +1,7 @@
 import os.path
 
+import timplotlib as tpl
+
 from msibi_utils.parse_logfile import parse_logfile
 import numpy as np
 
@@ -79,10 +81,12 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
     extra = [[potential[-1, 0], ax.get_xlim()[1]], [0, 0]]
     pot_ax.plot(extra[0], extra[1], '#0485d1')
     ax.legend(loc=0)
+    tpl.timize(ax)
     fig.tight_layout()
     if not os.path.exists('figures'):
         os.makedirs('figures')
-    fig.savefig('figures/{t1}-{t2}-{state}-step{step}.pdf'.format(**locals()))
+    fig.savefig('figures/{t1}-{t2}-{state}-step{step}.pdf'.format(**locals()),
+            transparent=True)
     plt.close('all')
 
 def plot_all_rdfs(logfile_name, target_dir, 
