@@ -9,7 +9,7 @@ def plot_pair_fits(pair, fits, use_agg=False, ylims=(0, 1)):
         mpl.use('Agg')
     import matplotlib.pyplot as plt
     fig, ax = plt.subplots()
-    for state, fit in fits[pair].iteritems():
+    for state, fit in fits[pair].items():
         ax.plot(fit, label=state)
     ax.set_xlabel('step')
     ax.set_ylabel('relative fit')

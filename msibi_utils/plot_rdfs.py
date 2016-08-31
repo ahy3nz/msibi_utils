@@ -112,8 +112,8 @@ def plot_all_rdfs(logfile_name, target_dir,
     if not os.path.exists('figures'):
         os.makedirs('figures')
     logfile_info = parse_logfile(logfile_name)
-    for pair, state in logfile_info.iteritems():
-        for state, fits in state.iteritems():
+    for pair, state in logfile_info.items():
+        for state, fits in state.items():
             if step == -1:
                 step = len(fits) - 1
             type1 = pair.split('-')[0]

@@ -121,8 +121,8 @@ def animate_all_pairs_states(logfile_name, target_dir,
     if not os.path.exists('animations'):
         os.makedirs('animations')
     logfile_info = parse_logfile(logfile_name)
-    for pair, state in logfile_info.iteritems():
-        for state, fits in state.iteritems():
+    for pair, state in logfile_info.items():
+        for state, fits in state.items():
             if step == -1:
                 step = len(fits)
             type1 = pair.split('-')[0]
