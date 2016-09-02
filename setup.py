@@ -14,6 +14,12 @@ class PyTest(TestCommand):
         errcode = pytest.main(['msibi_utils/tests/test_parse_logfile.py'])
         sys.exit(errcode)
 
+try:
+    import timplotlib
+except ImportError:
+    print('Building and running msibi_utils requires timplotlib.')
+    sys.exit(1)
+
 requirements = [line.strip() for line in open('requirements.txt').readlines()]
 setup(name='msibi_utils',
       version='0.1',
