@@ -7,6 +7,7 @@ python:
 install: "pip install -r requirements.txt"
 # script: nosetests
 script:
+  - pip install git+git@github.com:tcmoore3/timplotlib.git
   - coverage run --rcfile=.coveragerc --source=linear_solver setup.py test
 after_success:
   - coveralls
