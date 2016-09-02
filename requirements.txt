@@ -1,4 +1,4 @@
 matplotlib
 numpy
 python-coveralls
-timplotlib
+
