@@ -64,6 +64,7 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
         ax.set_ylim(top=np.ceil(np.amax(rdfs[n_skip:, :, 1])))
     ax.set_ylim(bottom=0)
     pot_ax = ax.twinx()
+    pot_ax.grid(False)
     pot_line, = pot_ax.plot([], [], c='#0485d1')
     pot_ax.set_ylim(bottom=1.1*np.amin(potentials[:, :, 1]))
     pot_ax.set_ylim(top=-1.1*np.amin(potentials[:, :, 1]))

@@ -73,6 +73,7 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
     ax.set_xlim(left=0)
     ax.set_title('{t1}-{t2}, {state}'.format(**locals()))
     pot_ax = ax.twinx()
+    pot_ax.grid(False)
     pot_ax.plot(potential[:, 0], potential[:, 1], "#0485d1")
     pot_ax.set_ylabel('V(r), kcal/mol')
     pot_ax.set_ylim(bottom=1.1*np.amin(potential[5:, 1]))
