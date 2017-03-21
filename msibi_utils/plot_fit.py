@@ -1,7 +1,5 @@
 import os.path
 
-import timplotlib as tpl
-
 from msibi_utils.parse_logfile import parse_logfile
 
 
@@ -12,13 +10,13 @@ def plot_pair_fits(pair, fits, use_agg=False, ylims=(0, 1)):
     import matplotlib.pyplot as plt
     fig, ax = plt.subplots()
     for state, fit in fits[pair].items():
-        ax.plot(fit, label=state)
+        d_fit = float(fit[-1]) - float(fit[-2])
+        ax.plot(fit, label='{0}, d_fit = {1:.3f}'.format(state, d_fit))
     ax.set_xlabel('step')
     ax.set_ylabel('relative fit')
     ax.set_ylim(ylims)
     ax.legend(loc='best')
     ax.set_title(pair)
-    tpl.timize(ax)
     fig.tight_layout()
     fig.savefig('figures/%s-fit.pdf' % pair, transparent=True)
     plt.close('all')
