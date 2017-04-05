@@ -43,7 +43,7 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
         import matplotlib as mpl
         mpl.use('Agg')
     import matplotlib.pyplot as plt
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(5, 5.0*3/4))
     rdfs = [np.loadtxt(
             os.path.join(rdf_dir, 'pair_{0}-{1}-state_{2}-step{3}.txt'.format(
             t1, t2, state, i))) for i in range(step)]
@@ -73,7 +73,8 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     ax.set_xlim((0, rdfs[0, -1, 0]))
     ax.set_xlabel(u'r, \u00c5')
     ax.set_ylabel('g(r)')
-    iter_no = ax.text(0.95, 0.05, '', va='bottom', ha='right', transform=ax.transAxes)
+    iter_no = ax.text(0.95, 0.05, '', va='bottom', ha='right', transform=ax.transAxes,
+            bbox={'facecolor': 'white', 'alpha': 0.8, 'edgecolor': 'none'})
     pot_ax.set_ylabel('V(r), kcal/mol', color=pot_line.get_c())
     for tl in pot_ax.get_yticklabels():
         tl.set_color(pot_line.get_c())
@@ -83,7 +84,8 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
             fargs=(rdf_line, pot_line, potentials, rdfs, iter_no))
     if not os.path.exists('animations'):
         os.makedirs('animations')
-    anim.save(os.path.join('animations', '{t1}-{t2}-{state}.mp4'.format(**locals())))
+    anim.save(os.path.join('animations', '{t1}-{t2}-{state}.mp4'.format(**locals())),
+            dpi=400)
     plt.close('all')
 
 
