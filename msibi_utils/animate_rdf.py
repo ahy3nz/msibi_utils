@@ -58,29 +58,34 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     potentials[:, :, 0] *= to_angstrom
     potentials[:, :, 1] *= to_kcalpermol
     rdfs[:, :, 0] *= to_angstrom
-    ax.plot(target_rdf[:, 0], target_rdf[:, 1], label='Target')
-    rdf_line, = ax.plot([], [], label='Query')
+    ax.plot(target_rdf[:, 0], target_rdf[:, 1], label='Target', color='black')
+    rdf_line, = ax.plot([], [], label='Query', color='darkgrey')
     if np.amax(rdfs[:, :, 1]) > np.amax(target_rdf[:, 1]):
         ax.set_ylim(top=np.ceil(np.amax(rdfs[n_skip:, :, 1])))
     ax.set_ylim(bottom=0)
+    #ax.set_ylim([0,10])
     pot_ax = ax.twinx()
     pot_ax.grid(False)
     pot_line, = pot_ax.plot([], [], c='#0485d1')
     pot_ax.set_ylim(bottom=1.1*np.amin(potentials[:, :, 1]))
     pot_ax.set_ylim(top=-1.1*np.amin(potentials[:, :, 1]))
+    pot_ax.set_ylim([-1e2, 1e2])
+    #pot_ax.set_ylim([-1e2, 5e3])
     extra = [[potentials[0, -1, 0], ax.get_xlim()[1]], [0, 0]]
     pot_ax.plot(extra[0], extra[1], '#0485d1')
     ax.set_xlim((0, rdfs[0, -1, 0]))
-    ax.set_xlabel(u'r, \u00c5')
+    ax.set_xlabel(u'r, nm')
+    #ax.set_xlabel(u'r, \u00c5')
     ax.set_ylabel('g(r)')
     iter_no = ax.text(0.95, 0.05, '', va='bottom', ha='right', transform=ax.transAxes,
             bbox={'facecolor': 'white', 'alpha': 0.8, 'edgecolor': 'none'})
-    pot_ax.set_ylabel('V(r), kcal/mol', color=pot_line.get_c())
+    pot_ax.set_ylabel('V(r), kJ/mol', color=pot_line.get_c())
+    #pot_ax.set_ylabel('V(r), kcal/mol', color=pot_line.get_c())
     for tl in pot_ax.get_yticklabels():
         tl.set_color(pot_line.get_c())
     ax.set_title('{t1}-{t2}, {state}'.format(**locals()))
     fig.tight_layout()
-    anim = animation.FuncAnimation(fig, _animate, step, 
+    anim = animation.FuncAnimation(fig, _animate, step, interval=500,
             fargs=(rdf_line, pot_line, potentials, rdfs, iter_no))
     if not os.path.exists('animations'):
         os.makedirs('animations')
@@ -97,7 +102,7 @@ def _animate(step, rdf_line, pot_line, potentials, rdfs, iter_no):
 
 def animate_all_pairs_states(logfile_name, target_dir, 
         potentials_dir='./potentials', rdf_dir = './rdfs', step=-1, 
-        use_agg=False, to_angstrom=6.0, to_kcalpermol=0.1, n_skip=1):
+        use_agg=False, to_angstrom=1.0, to_kcalpermol=1, n_skip=1):
     """Plot the RDF vs. the target for each pair at each state
 
     Args

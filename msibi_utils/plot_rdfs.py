@@ -90,7 +90,7 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
 
 def plot_all_rdfs(logfile_name, target_dir, 
         potentials_dir='./potentials', rdf_dir = './rdfs', step=-1, 
-        use_agg=False, to_angstrom=6.0, to_kcalpermol=0.1, lw=None):
+        use_agg=False, to_angstrom=1.0, to_kcalpermol=1, lw=None):
     """Plot the RDF vs. the target for each pair at each state
 
     Args
