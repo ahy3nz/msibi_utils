@@ -145,11 +145,11 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     #pot_ax.plot(extra[0], extra[1], '#0485d1')
     pot_ax.plot(extra[0], extra[1], color='blue')
     ax.set_xlim((0, rdfs[0, -1, 0]))
-    ax.set_xlabel(u'r, \u00c5')
+    ax.set_xlabel(u'r, nm')
     ax.set_ylabel('g(r)')
     iter_no = ax.text(0.95, 0.05, '', va='bottom', ha='right', transform=ax.transAxes,
             bbox={'facecolor': 'white', 'alpha': 0.8, 'edgecolor': 'none'})
-    pot_ax.set_ylabel('V(r), kcal/mol', color=pot_line.get_c())
+    pot_ax.set_ylabel('V(r), kJ/mol', color=pot_line.get_c())
     for tl in pot_ax.get_yticklabels():
         tl.set_color(pot_line.get_c())
     ax.set_title('{t1}-{t2}, {state}'.format(**locals()))
