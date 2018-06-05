@@ -142,7 +142,8 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     pot_ax.set_ylim(bottom=1.1*np.amin(potentials[:, :, 1]))
     pot_ax.set_ylim(top=-1.1*np.amin(potentials[:, :, 1]))
     extra = [[potentials[0, -1, 0], ax.get_xlim()[1]], [0, 0]]
-    pot_ax.plot(extra[0], extra[1], '#0485d1')
+    #pot_ax.plot(extra[0], extra[1], '#0485d1')
+    pot_ax.plot(extra[0], extra[1], color='blue')
     ax.set_xlim((0, rdfs[0, -1, 0]))
     ax.set_xlabel(u'r, \u00c5')
     ax.set_ylabel('g(r)')
