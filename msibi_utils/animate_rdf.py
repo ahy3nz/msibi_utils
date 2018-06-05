@@ -7,8 +7,9 @@ import numpy as np
 
 
 def animate_pair_at_state(t1, t2, state, step, target_dir, 
-        potentials_dir='./potentials', rdf_dir='./rdfs', use_agg=False, 
-        to_angstrom=6.0, to_kcalpermol=0.1, n_skip=1):
+        potentials_dir='./potentials', rdf_dir='./rdfs', 
+        potentials2_dir=None, rdf2_dir=None, use_agg=False, 
+        to_angstrom=1.0, to_kcalpermol=1.0, n_skip=1):
     """Make an animation showing how the RDF and potential evolve for a particular pair at
     a particular state
 
@@ -24,7 +25,11 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
         Path to target RDFs
     potentials_dir : str
         Path to potentials from MS IBI optimization
+    potentials2_dir : str, optional
+        Path to potentials from MS IBI optimization
     rdf_dir : str
+        Path to RDFs from MS IBI optimization
+    rdf2_dir : str, optional
         Path to RDFs from MS IBI optimization
     use_agg : bool
         Use Agg backend if true, may be useful for clusters with no display
@@ -44,28 +49,72 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
         mpl.use('Agg')
     import matplotlib.pyplot as plt
     fig, ax = plt.subplots(figsize=(5, 5.0*3/4))
+
+    # Load all the primary rdfs and potentials
     rdfs = [np.loadtxt(
             os.path.join(rdf_dir, 'pair_{0}-{1}-state_{2}-step{3}.txt'.format(
             t1, t2, state, i))) for i in range(step)]
-    rdfs = np.asarray(rdfs)
     potentials = [np.loadtxt(
             os.path.join(potentials_dir, 'step{0}.pot.{1}-{2}.txt'.format(
             i, t1, t2))) for i in range(step)]
-    potentials=np.asarray(potentials)
     target_rdf = np.loadtxt(
             os.path.join(target_dir, '{t1}-{t2}-{state}.txt'.format(**locals())))
+    # Do some checks if any of the rdfs or potentials were negative
+    # Useful if the cluster has I/O errors
+    for i, potential in potentials:
+        if len(potential) == 0:
+            potentials[i] = np.zeros((121,3))
+    potentials=np.asarray(potentials)
+    for i, rdf in rdfs:
+        if len(rdf) == 0:
+            rdfs[i] = np.zeros((200,2))
+    rdfs = np.asarray(rdfs)
     target_rdf[:, 0] *= to_angstrom
     potentials[:, :, 0] *= to_angstrom
     potentials[:, :, 1] *= to_kcalpermol
     rdfs[:, :, 0] *= to_angstrom
+
+    if potentials2_dir is not None and rdf2_dir is not None:
+        rdfs2 = [np.loadtxt(
+                os.path.join(rdf2_dir, 'pair_{0}-{1}-state_{2}-step{3}.txt'.format(
+                t1, t2, state, i))) for i in range(step)]
+        potentials2 = [np.loadtxt(
+                os.path.join(potentials2_dir, 'step{0}.pot.{1}-{2}.txt'.format(
+                i, t1, t2))) for i in range(step)]
+
+        # Do some checks if any of the rdfs or potentials were negative
+        # Useful if the cluster has I/O errors
+        for i, potential in potentials2:
+            if len(potential) == 0:
+                potentials2[i] = np.zeros((121,3))
+        for i, rdf in rdfs2:
+            if len(rdf) == 0:
+                rdfs2[i] = np.zeros((200,2))
+        potentials2[:, :, 0] *= to_angstrom
+        potentials2[:, :, 1] *= to_kcalpermol
+        rdfs2[:, :, 0] *= to_angstrom
+        potentials2=np.asarray(potentials2)
+        rdfs2 = np.asarray(rdfs2)
+    else:
+        potentials2 = None
+        rdfs2 = None
+
+
     ax.plot(target_rdf[:, 0], target_rdf[:, 1], label='Target')
     rdf_line, = ax.plot([], [], label='Query')
-    if np.amax(rdfs[:, :, 1]) > np.amax(target_rdf[:, 1]):
-        ax.set_ylim(top=np.ceil(np.amax(rdfs[n_skip:, :, 1])))
-    ax.set_ylim(bottom=0)
+    #if np.amax(rdfs[:, :, 1]) > np.amax(target_rdf[:, 1]):
+        #ax.set_ylim(top=np.ceil(np.amax(rdfs[n_skip:, :, 1])))
+    ax.set_ylim(bottom=0, top=np.ceil(np.amax(target_rdf[:,1])))
+    ax.set_ylim([-10 ,40])
     pot_ax = ax.twinx()
     pot_ax.grid(False)
     pot_line, = pot_ax.plot([], [], c='#0485d1')
+    if potentials2_dir is not None and rdf2_dir is not None:
+        pot_line2, = pot_ax.plot([], [], c='#0485d1', linestyle='--')
+        rdf_line2, = ax.plot([], [], label='Query 2', linestyle='--')
+    else:
+        pot_line2 = None
+        rdf_line2 = None
     pot_ax.set_ylim(bottom=1.1*np.amin(potentials[:, :, 1]))
     pot_ax.set_ylim(top=-1.1*np.amin(potentials[:, :, 1]))
     extra = [[potentials[0, -1, 0], ax.get_xlim()[1]], [0, 0]]
@@ -79,9 +128,11 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     for tl in pot_ax.get_yticklabels():
         tl.set_color(pot_line.get_c())
     ax.set_title('{t1}-{t2}, {state}'.format(**locals()))
+    ax.legend()
     fig.tight_layout()
     anim = animation.FuncAnimation(fig, _animate, step, 
-            fargs=(rdf_line, pot_line, potentials, rdfs, iter_no))
+            fargs=(rdf_line, pot_line, potentials, rdfs, rdf_line2, pot_line2, potentials2, rdfs2,
+                    iter_no ))
     if not os.path.exists('animations'):
         os.makedirs('animations')
     anim.save(os.path.join('animations', '{t1}-{t2}-{state}.mp4'.format(**locals())),
@@ -89,9 +140,15 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     plt.close('all')
 
 
-def _animate(step, rdf_line, pot_line, potentials, rdfs, iter_no):
+def _animate(step, rdf_line, pot_line, potentials, rdfs, rdf_line2, pot_line2, 
+            potentials2, rdf2, iter_no):
     rdf_line.set_data(rdfs[step, :, 0], rdfs[step, :, 1])
     pot_line.set_data(potentials[step, :, 0], potentials[step, :, 1])
+    if rdfs2 is not None and potentials2 is not None:
+        rdf_line2.set_data(rdfs2[step, :, 0], rdfs2[step, :, 1])
+        pot_line2.set_data(potentials2[step, :, 0], potentials2[step, :, 1])
+
+            
     iter_no.set_text('%d' % step)
     return rdf_line, pot_line, iter_no
 
