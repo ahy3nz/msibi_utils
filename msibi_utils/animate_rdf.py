@@ -47,11 +47,41 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     rdfs = [np.loadtxt(
             os.path.join(rdf_dir, 'pair_{0}-{1}-state_{2}-step{3}.txt'.format(
             t1, t2, state, i))) for i in range(step)]
+    for i, rdf in enumerate(rdfs):
+        if len(rdf) == 0:
+            rdfs[i] = np.zeros((200,2))
     rdfs = np.asarray(rdfs)
+
+
+    rdfs2 = [np.loadtxt(
+            os.path.join("./charmm_bulk/rdfs/", 'pair_{0}-{1}-state_{2}-step{3}.txt'.format(
+            t1, t2, state, i))) for i in range(step)]
+    for i, rdf in enumerate(rdfs2):
+        if len(rdf) == 0:
+            rdfs2[i] = np.zeros((200,2))
+    rdfs2 = np.asarray(rdfs2)
+
+
     potentials = [np.loadtxt(
             os.path.join(potentials_dir, 'step{0}.pot.{1}-{2}.txt'.format(
             i, t1, t2))) for i in range(step)]
+
+    for i, potential in enumerate(potentials):
+        if len(potential) == 0:
+            potentials[i] = np.zeros((121,3))
+
     potentials=np.asarray(potentials)
+
+    potentials2 = [np.loadtxt(
+            os.path.join("./charmm_bulk/potentials/", 'step{0}.pot.{1}-{2}.txt'.format(
+            i, t1, t2))) for i in range(step)]
+    for i, potential in enumerate(potentials2):
+        if len(potential) == 0:
+            potentials2[i] = np.zeros((121,3))
+
+    potentials2 = np.asarray(potentials2)
+
+    
     target_rdf = np.loadtxt(
             os.path.join(target_dir, '{t1}-{t2}-{state}.txt'.format(**locals())))
     target_rdf[:, 0] *= to_angstrom
@@ -60,6 +90,9 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     rdfs[:, :, 0] *= to_angstrom
     ax.plot(target_rdf[:, 0], target_rdf[:, 1], label='Target', color='black')
     rdf_line, = ax.plot([], [], label='Query', color='darkgrey')
+
+    rdf_line2, = ax.plot([], [], label='Query', color='darkred')
+
     if np.amax(rdfs[:, :, 1]) > np.amax(target_rdf[:, 1]):
         ax.set_ylim(top=np.ceil(np.amax(rdfs[n_skip:, :, 1])))
     ax.set_ylim(bottom=0)
@@ -67,6 +100,9 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     pot_ax = ax.twinx()
     pot_ax.grid(False)
     pot_line, = pot_ax.plot([], [], c='#0485d1')
+
+    pot_line2, = pot_ax.plot([], [], c='darkgreen')
+
     pot_ax.set_ylim(bottom=1.1*np.amin(potentials[:, :, 1]))
     pot_ax.set_ylim(top=-1.1*np.amin(potentials[:, :, 1]))
     pot_ax.set_ylim([-1e2, 1e2])
@@ -86,7 +122,9 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     ax.set_title('{t1}-{t2}, {state}'.format(**locals()))
     fig.tight_layout()
     anim = animation.FuncAnimation(fig, _animate, step, interval=500,
-            fargs=(rdf_line, pot_line, potentials, rdfs, iter_no))
+            fargs=(rdf_line, rdf_line2, pot_line, pot_line2, 
+                    potentials, potentials2, 
+                    rdfs, rdfs2, iter_no))
     if not os.path.exists('animations'):
         os.makedirs('animations')
     anim.save(os.path.join('animations', '{t1}-{t2}-{state}.mp4'.format(**locals())),
@@ -94,9 +132,15 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     plt.close('all')
 
 
-def _animate(step, rdf_line, pot_line, potentials, rdfs, iter_no):
+def _animate(step, rdf_line, rdf_line2, pot_line, pot_line2,
+            potentials, potentials2, 
+            rdfs, rdfs2, iter_no):
     rdf_line.set_data(rdfs[step, :, 0], rdfs[step, :, 1])
     pot_line.set_data(potentials[step, :, 0], potentials[step, :, 1])
+
+    rdf_line2.set_data(rdfs2[step, :, 0], rdfs2[step, :, 1])
+    pot_line2.set_data(potentials2[step, :, 0], potentials2[step, :, 1])
+
     iter_no.set_text('%d' % step)
     return rdf_line, pot_line, iter_no
 

@@ -59,8 +59,15 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
     rdf_name = 'pair_{t1}-{t2}-state_{state}-step{step}.txt'.format(**locals())
     rdf_file = os.path.join(rdf_dir, rdf_name)
     rdfs.append(np.loadtxt(rdf_file))
+
+    rdf_file2 = os.path.join("./charmm_bulk/rdfs",
+                            rdf_name)
+    rdfs.append(np.loadtxt(rdf_file2))
+
+
     rdfs[1][:, 0] *= to_angstrom
-    for rdf, label in zip(rdfs, ['Target', 'CG']):
+    #for rdf, label in zip(rdfs, ['Target', 'CG']):
+    for rdf, label in zip(rdfs, ['Target', 'CG-BI', 'CG-martini']):
         if lw: 
             ax.plot(rdf[:, 0], rdf[:, 1], label=label, lw=lw)
         else:
@@ -72,7 +79,13 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
     ax.set_title('{t1}-{t2}, {state}'.format(**locals()))
     pot_ax = ax.twinx()
     pot_ax.grid(False)
-    pot_ax.plot(potential[:, 0], potential[:, 1], "#0485d1")
+    #pot_ax.plot(potential[:, 0], potential[:, 1], "#0485d1")
+    pot_ax.plot(potential[:, 0], potential[:, 1], "#0485d1", label='CG-BI')
+
+    potential2 = np.loadtxt(os.path.join("/home/ayang41/Research/5-30-18/msibi/charmm_bulk/potentials", pot_name))
+    pot_ax.plot(potential2[:,0], potential2[:,1], color='blue', label='CG-martini')
+
+
     pot_ax.set_ylabel('V(r), kcal/mol')
     pot_ax.set_ylim(bottom=1.1*np.amin(potential[5:, 1]))
     pot_ax.set_ylim(top=-1.1*np.amin(potential[5:, 1]))
@@ -80,6 +93,9 @@ def plot_pair_at_state(t1, t2, state, step, target_dir,
     ax.set_xlim(right=rdfs[0][-1, 0])
     extra = [[potential[-1, 0], ax.get_xlim()[1]], [0, 0]]
     pot_ax.plot(extra[0], extra[1], '#0485d1')
+
+    pot_ax.legend(loc=1)
+
     ax.legend(loc=0)
     fig.tight_layout()
     if not os.path.exists('figures'):
