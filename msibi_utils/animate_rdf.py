@@ -128,7 +128,7 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     #if np.amax(rdfs[:, :, 1]) > np.amax(target_rdf[:, 1]):
         #ax.set_ylim(top=np.ceil(np.amax(rdfs[n_skip:, :, 1])))
     ax.set_ylim(bottom=0, top=np.ceil(np.amax(target_rdf[:,1])))
-    ax.set_ylim([-10 ,40])
+    #ax.set_ylim([-10 ,40])
     pot_ax = ax.twinx()
     pot_ax.grid(False)
     #pot_line, = pot_ax.plot([], [], c='#0485d1')
