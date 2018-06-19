@@ -1,13 +1,12 @@
 import os.path
+import matplotlib
+matplotlib.use('agg')
+import matplotlib.pyplot as plt
 
 from msibi_utils.parse_logfile import parse_logfile
 
 
 def plot_pair_fits(pair, fits, use_agg=False, ylims=(0, 1)):
-    if use_agg:
-        import matplotlib as mpl
-        mpl.use('Agg')
-    import matplotlib.pyplot as plt
     fig, ax = plt.subplots()
     for state, fit in fits[pair].items():
         d_fit = float(fit[-1]) - float(fit[-2])
@@ -21,7 +20,7 @@ def plot_pair_fits(pair, fits, use_agg=False, ylims=(0, 1)):
     fig.savefig('figures/%s-fit.pdf' % pair, transparent=True)
     plt.close('all')
 
-def plot_all_fits(filename, use_agg=False, ylims=(-1, -1)):
+def plot_all_fits(filename, use_agg=True, ylims=(-1, -1)):
     """Plot fitness function vs. iteration for each pair at each state
 
     Args
