@@ -10,7 +10,8 @@ def plot_pair_fits(pair, fits, use_agg=False, ylims=(0, 1)):
     fig, ax = plt.subplots()
     for state, fit in fits[pair].items():
         d_fit = float(fit[-1]) - float(fit[-2])
-        ax.plot(fit, label='{0}, \u0394f = {1:.3f}'.format(state, d_fit))
+        float_fit = [float(val) for val in fit]
+        ax.plot(float_fit, label='{0}, \u0394f = {1:.3f}'.format(state, d_fit))
     ax.set_xlabel('step')
     ax.set_ylabel('relative fit')
     ax.set_ylim(ylims)
@@ -20,7 +21,7 @@ def plot_pair_fits(pair, fits, use_agg=False, ylims=(0, 1)):
     fig.savefig('figures/%s-fit.pdf' % pair, transparent=True)
     plt.close('all')
 
-def plot_all_fits(filename, use_agg=True, ylims=(-1, -1)):
+def plot_all_fits(filename, use_agg=True, ylims=(0, 1)):
     """Plot fitness function vs. iteration for each pair at each state
 
     Args
