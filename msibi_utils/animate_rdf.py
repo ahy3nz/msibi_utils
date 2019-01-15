@@ -127,7 +127,8 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     rdf_line, = ax.plot([], [], label='Query', color='grey')
     #if np.amax(rdfs[:, :, 1]) > np.amax(target_rdf[:, 1]):
         #ax.set_ylim(top=np.ceil(np.amax(rdfs[n_skip:, :, 1])))
-    ax.set_ylim(bottom=0, top=np.ceil(np.amax(target_rdf[:,1])))
+    ax.set_ylim(bottom=0, top=2*np.ceil(np.amax(target_rdf[:,1])))
+    #ax.set_ylim(bottom=0, top=np.ceil(np.max(rdfs[:,:,1])))
     #ax.set_ylim([-10 ,40])
     pot_ax = ax.twinx()
     pot_ax.grid(False)
@@ -139,8 +140,12 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     else:
         pot_line2 = None
         rdf_line2 = None
-    pot_ax.set_ylim(bottom=1.1*np.amin(potentials[:, :, 1]))
-    pot_ax.set_ylim(top=-1.1*np.amin(potentials[:, :, 1]))
+    pot_min = np.amin(potentials[:,:,1])
+    if abs(pot_min) < 0.5:
+        pot_min = -0.5
+    #pot_ax.set_ylim(bottom=1.1*np.amin(potentials[:, :, 1]))
+    #pot_ax.set_ylim(top=-1.1*np.amin(potentials[:, :, 1]))
+    pot_ax.set_ylim([pot_min, -pot_min])
     extra = [[potentials[0, -1, 0], ax.get_xlim()[1]], [0, 0]]
     #pot_ax.plot(extra[0], extra[1], '#0485d1')
     pot_ax.plot(extra[0], extra[1], color='blue')
