@@ -73,7 +73,6 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     potentials[:, :, 0] *= to_angstrom
     potentials[:, :, 1] *= to_kcalpermol
     rdfs[:, :, 0] *= to_angstrom
-
     if potentials2_dir is not None and rdf2_dir is not None:
         #rdfs2 = [np.loadtxt(
         #        os.path.join(rdf2_dir, 'pair_{0}-{1}-state_{2}-step{3}.txt'.format(
@@ -146,23 +145,28 @@ def animate_pair_at_state(t1, t2, state, step, target_dir,
     #pot_ax.set_ylim(bottom=1.1*np.amin(potentials[:, :, 1]))
     #pot_ax.set_ylim(top=-1.1*np.amin(potentials[:, :, 1]))
     pot_ax.set_ylim([pot_min, -pot_min])
+
     extra = [[potentials[0, -1, 0], ax.get_xlim()[1]], [0, 0]]
     #pot_ax.plot(extra[0], extra[1], '#0485d1')
     pot_ax.plot(extra[0], extra[1], color='blue')
     ax.set_xlim((0, rdfs[0, -1, 0]))
     ax.set_xlabel(u'r, nm')
+
     ax.set_ylabel('g(r)')
     iter_no = ax.text(0.95, 0.05, '', va='bottom', ha='right', transform=ax.transAxes,
             bbox={'facecolor': 'white', 'alpha': 0.8, 'edgecolor': 'none'})
     pot_ax.set_ylabel('V(r), kJ/mol', color=pot_line.get_c())
+
     for tl in pot_ax.get_yticklabels():
         tl.set_color(pot_line.get_c())
     ax.set_title('{t1}-{t2}, {state}'.format(**locals()))
     ax.legend()
     fig.tight_layout()
+
     anim = animation.FuncAnimation(fig, _animate, step, 
             fargs=(rdf_line, pot_line, potentials, rdfs, rdf_line2, pot_line2, potentials2, rdfs2,
                     iter_no ))
+
     if not os.path.exists('animations'):
         os.makedirs('animations')
     anim.save(os.path.join('animations', '{t1}-{t2}-{state}.mp4'.format(**locals())),
@@ -183,10 +187,12 @@ def _animate(step, rdf_line, pot_line, potentials, rdfs, rdf_line2, pot_line2,
     return rdf_line, pot_line, iter_no
 
 def animate_all_pairs_states(logfile_name, target_dir, 
+
         potentials_dir='./potentials', rdf_dir = './rdfs', 
         potentials2_dir='./potentials', rdf2_dir = './rdfs', 
         step=-1, 
         use_agg=False, to_angstrom=1.0, to_kcalpermol=1.0, n_skip=1):
+
     """Plot the RDF vs. the target for each pair at each state
 
     Args
